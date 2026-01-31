@@ -14,8 +14,9 @@ const Footer: React.FC = () => {
     }
   };
 
-  const handlePhoneClick = (phoneNumber: string) => {
-    window.open(`tel:${phoneNumber}`, '_self');
+  const getWhatsAppUrl = (phoneNumber: string) => {
+    const digits = phoneNumber.replace(/\D/g, '');
+    return `https://wa.me/${digits}?text=Hello`;
   };
 
   const handleEmailClick = (email: string) => {
@@ -130,26 +131,36 @@ const Footer: React.FC = () => {
                 <div className="flex items-start gap-2 sm:gap-3 min-w-0">
                   <MapPin size={18} className="mt-0.5 flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
                   <div className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 leading-relaxed break-words min-w-0">
-                    <span className="block">Mafraq Industrial Area</span>
-                    <span className="block">Abudhabi, UAE</span>
+                    <span className="block">Mafraq industrial area</span>
+                    <span className="block">Abudhabi UAE</span>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 sm:gap-3">
-                  <button
-                    type="button"
-                    onClick={() => handlePhoneClick('+971554456700')}
+                <div className="flex flex-col">
+                  <a
+                    href={getWhatsAppUrl('+971545730050')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 sm:gap-3 w-full text-left py-2 rounded hover:opacity-90 transition-opacity min-h-[44px] sm:min-h-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50"
+                  >
+                    <Phone size={18} className="flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
+                    <span className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 break-all">+971-545730050</span>
+                  </a>
+                  <a
+                    href={getWhatsAppUrl('+971 55 445 6700')}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 sm:gap-3 w-full text-left py-2 rounded hover:opacity-90 transition-opacity min-h-[44px] sm:min-h-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50"
                   >
                     <Phone size={18} className="flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
                     <span className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 break-all">+971 55 445 6700</span>
-                  </button>
+                  </a>
                   <button
                     type="button"
-                    onClick={() => handlePhoneClick('+971567403055')}
+                    onClick={() => handleEmailClick('service@meyaruae.com')}
                     className="flex items-center gap-2 sm:gap-3 w-full text-left py-2 rounded hover:opacity-90 transition-opacity min-h-[44px] sm:min-h-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50"
                   >
-                    <Phone size={18} className="flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
-                    <span className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 break-all">+971 567 403 055</span>
+                    <Mail size={18} className="flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
+                    <span className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 break-all">service@meyaruae.com</span>
                   </button>
                   <button
                     type="button"
@@ -158,14 +169,6 @@ const Footer: React.FC = () => {
                   >
                     <Mail size={18} className="flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
                     <span className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 break-all">Vidyuth@meyaruae.com</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleEmailClick('Service@Meyaruae.com')}
-                    className="flex items-center gap-2 sm:gap-3 w-full text-left py-2 rounded hover:opacity-90 transition-opacity min-h-[44px] sm:min-h-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50"
-                  >
-                    <Mail size={18} className="flex-shrink-0 w-[18px] h-[18px] sm:w-5 sm:h-5" aria-hidden />
-                    <span className="text-xs sm:text-sm lg:text-base text-primary-foreground/90 break-all">Service@Meyaruae.com</span>
                   </button>
                 </div>
               </div>

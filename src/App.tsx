@@ -9,6 +9,7 @@ import './styles/globals.css';
 const AboutUs = lazy(() => import('./components/AboutUs'));
 const Services = lazy(() => import('./components/Services'));
 const OurPromise = lazy(() => import('./components/OurPromise'));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
 const MaintenancePlans = lazy(() => import('./components/MaintenancePlans'));
 const Booking = lazy(() => import('./components/Booking'));
 const Contact = lazy(() => import('./components/Contact'));
@@ -29,6 +30,7 @@ function App() {
           <Hero />
           <Suspense fallback={<LoadingSpinner />}>
             <AboutUs />
+            <WhyChooseUs />
             <OurPromise />
             <MaintenancePlans />
             <Services />

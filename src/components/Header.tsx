@@ -45,12 +45,13 @@ const Header: React.FC = memo(() => {
     }
   }, []);
 
-  const handlePhoneClick = useCallback(() => {
-    window.open('tel:+971554456700', '_self');
+  const getWhatsAppUrl = useCallback((number: string) => {
+    const digits = number.replace(/\D/g, '');
+    return `https://wa.me/${digits}?text=Hello`;
   }, []);
 
-  const handleEmailClick = useCallback(() => {
-    window.open('mailto:service@meyaruae.com', '_self');
+  const handleEmailClick = useCallback((email: string) => {
+    window.open(`mailto:${email}`, '_self');
   }, []);
 
   const toggleMenu = useCallback(() => {
@@ -62,20 +63,38 @@ const Header: React.FC = memo(() => {
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2 sm:py-3">
         <div className="container">
-          <div className="flex flex-row justify-between items-center gap-2 sm:gap-6 lg:gap-8 text-xs sm:text-sm">
-            <button 
-              onClick={handlePhoneClick}
+          <div className="flex flex-row flex-wrap justify-between items-center gap-2 sm:gap-6 lg:gap-8 text-xs sm:text-sm">
+            <a 
+              href={getWhatsAppUrl('+971-545730050')}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1 sm:gap-2 hover:opacity-80 transition-opacity duration-75 cursor-pointer"
             >
               <Phone size={14} className="sm:w-4 sm:h-4" />
-              <a href="https://wa.me/+971554456700?text=Hello" className="text-xs sm:text-sm lg:text-base">+971554456700</a>
-            </button>
+              <span className="text-xs sm:text-sm lg:text-base">+971-545730050</span>
+            </a>
+            <a 
+              href={getWhatsAppUrl('+971 55 445 6700')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 sm:gap-2 hover:opacity-80 transition-opacity duration-75 cursor-pointer"
+            >
+              <Phone size={14} className="sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm lg:text-base">+971 55 445 6700</span>
+            </a>
             <button 
-              onClick={handleEmailClick}
+              onClick={() => handleEmailClick('service@meyaruae.com')}
               className="flex items-center gap-1 sm:gap-2 hover:opacity-80 transition-opacity duration-75 cursor-pointer"
             >
               <Mail size={14} className="sm:w-4 sm:h-4" />
               <span className="text-xs sm:text-sm lg:text-base">service@meyaruae.com</span>
+            </button>
+            <button 
+              onClick={() => handleEmailClick('Vidyuth@meyaruae.com')}
+              className="flex items-center gap-1 sm:gap-2 hover:opacity-80 transition-opacity duration-75 cursor-pointer"
+            >
+              <Mail size={14} className="sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm lg:text-base">Vidyuth@meyaruae.com</span>
             </button>
           </div>
         </div>

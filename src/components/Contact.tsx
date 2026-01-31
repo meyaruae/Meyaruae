@@ -3,8 +3,9 @@ import { Card, CardContent } from './ui/card';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  const handlePhoneClick = (number: string) => {
-    window.open(`tel:${number.replace(/\s/g, '')}`, '_self');
+  const getWhatsAppUrl = (number: string) => {
+    const digits = number.replace(/\D/g, '');
+    return `https://wa.me/${digits}?text=Hello`;
   };
 
   const handleEmailClick = (email: string) => {
@@ -12,9 +13,9 @@ const Contact: React.FC = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, title: 'Phone', details: ['+971 55 445 6700', '+971 567 403 055'], subtitle: 'Available for service calls', type: 'phone' as const },
-    { icon: Mail, title: 'Email', details: ['Vidyuth@meyaruae.com', 'Service@Meyaruae.com'], subtitle: "We'll respond within 24 hours", type: 'email' as const },
-    { icon: MapPin, title: 'Address', details: ['Mafraq Industrial Area', 'Abudhabi', 'UAE'], subtitle: 'Visit us', type: 'address' as const }
+    { icon: Phone, title: 'Phone', details: ['+971-545730050', '+971 55 445 6700'], subtitle: 'Available for service calls', type: 'phone' as const },
+    { icon: Mail, title: 'Email', details: ['service@meyaruae.com', 'Vidyuth@meyaruae.com'], subtitle: "We'll respond within 24 hours", type: 'email' as const },
+    { icon: MapPin, title: 'Address', details: ['Mafraq industrial area', 'Abudhabi UAE'], subtitle: 'Visit us', type: 'address' as const }
   ];
 
   return (
@@ -24,10 +25,10 @@ const Contact: React.FC = () => {
           <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium mb-4 sm:mb-6">
             Contact Us
           </div>
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground dark:text-foreground-dark mb-4 sm:mb-6 leading-tight text-center text-left">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground dark:text-foreground-dark mb-4 sm:mb-6 leading-tight text-center">
             Get In Touch
           </h2>
-          <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground dark:text-muted-foreground-dark max-w-3xl mx-auto leading-relaxed px-4 text-center text-left">
+          <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground dark:text-muted-foreground-dark max-w-3xl mx-auto leading-relaxed px-4 text-center">
             Ready to get started? Contact us today for professional kitchen maintenance services
           </p>
         </div>
@@ -42,27 +43,27 @@ const Contact: React.FC = () => {
                 <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
                   <info.icon size={24} className="sm:w-8 sm:h-8" />
                 </div>
-                <h3 className={`text-base sm:text-xl lg:text-2xl font-semibold text-foreground dark:text-foreground-dark mb-3 sm:mb-4 text-left`}>
+                <h3 className={`text-base sm:text-xl lg:text-2xl font-semibold text-foreground dark:text-foreground-dark mb-3 sm:mb-4 text-center`}>
                   {info.title}
                 </h3>
                 <div className="space-y-1 mb-2">
                   {info.details.map((detail, detailIndex) => (
                     info.type === 'phone' ? (
-                      <button key={detailIndex} onClick={() => handlePhoneClick(detail)} className="block text-xs sm:text-base text-muted-foreground dark:text-muted-foreground-dark text-left hover:text-primary dark:hover:text-primary cursor-pointer">
+                      <a key={detailIndex} href={getWhatsAppUrl(detail)} target="_blank" rel="noopener noreferrer" className="block text-xs sm:text-base text-muted-foreground dark:text-muted-foreground-dark text-center hover:text-primary dark:hover:text-primary cursor-pointer">
                         {detail}
-                      </button>
+                      </a>
                     ) : info.type === 'email' ? (
-                      <button key={detailIndex} onClick={() => handleEmailClick(detail)} className="block text-xs sm:text-base text-muted-foreground dark:text-muted-foreground-dark text-left hover:text-primary dark:hover:text-primary cursor-pointer">
+                      <button key={detailIndex} onClick={() => handleEmailClick(detail)} className="w-full block text-xs sm:text-base text-muted-foreground dark:text-muted-foreground-dark text-center hover:text-primary dark:hover:text-primary cursor-pointer">
                         {detail}
                       </button>
                     ) : (
-                      <p key={detailIndex} className={`text-xs sm:text-base text-muted-foreground dark:text-muted-foreground-dark text-left`}>
+                      <p key={detailIndex} className={`text-xs sm:text-base text-muted-foreground dark:text-muted-foreground-dark text-center`}>
                         {detail}
                       </p>
                     )
                   ))}
                 </div>
-                <p className={`text-xs sm:text-sm text-muted-foreground dark:text-muted-foreground-dark text-left`}>
+                <p className={`text-xs sm:text-sm text-muted-foreground dark:text-muted-foreground-dark text-center`}>
                   {info.subtitle}
                 </p>
               </CardContent>

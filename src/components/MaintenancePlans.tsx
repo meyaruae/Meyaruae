@@ -16,10 +16,10 @@ const MaintenancePlans: React.FC = () => {
           <div className="inline-block bg-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm font-medium mb-4 sm:mb-6 lg:mb-8">
             Maintenance Plans
           </div>
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground dark:text-foreground-dark mb-4 sm:mb-6 leading-tight text-center text-left">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground dark:text-foreground-dark mb-4 sm:mb-6 leading-tight text-center">
             Maintenance Plans
           </h2>
-          <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground dark:text-muted-foreground-dark max-w-3xl mx-auto leading-relaxed px-4 text-center text-left">
+          <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground dark:text-muted-foreground-dark max-w-3xl mx-auto leading-relaxed px-4 text-center">
             Our maintenance packages are designed to keep your kitchen in top shape all year round
           </p>
         </div>
@@ -31,10 +31,10 @@ const MaintenancePlans: React.FC = () => {
                 <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform">
                   <plan.icon size={24} className="sm:w-8 sm:h-8" />
                 </div>
-                <h3 className={`text-base sm:text-xl lg:text-2xl font-semibold text-foreground dark:text-foreground-dark mb-3 sm:mb-4 text-left`}>
+                <h3 className={`text-base sm:text-xl lg:text-2xl font-semibold text-foreground dark:text-foreground-dark mb-3 sm:mb-4 text-center`}>
                   {plan.title}
                 </h3>
-                <p className={`text-xs sm:text-base lg:text-lg text-muted-foreground dark:text-muted-foreground-dark leading-relaxed text-left`}>
+                <p className={`text-xs sm:text-base lg:text-lg text-muted-foreground dark:text-muted-foreground-dark leading-relaxed text-center`}>
                   {plan.description}
                 </p>
               </CardContent>
