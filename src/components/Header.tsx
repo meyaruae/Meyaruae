@@ -92,7 +92,7 @@ const Header: React.FC = memo(() => {
               className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity"
               onClick={() => scrollToSection('home')}
             >
-              MEYER
+              MEYAR
             </div>
 
             {/* Desktop Navigation */}
