@@ -181,21 +181,22 @@ const Header: React.FC = memo(() => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - overlay and panel above sticky header (z-[100]) */}
         {isMenuOpen && (
           <>
             <div 
-              className="fixed inset-0 bg-black/50 z-40"
+              className="fixed inset-0 bg-black/50 z-[100]"
               onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
             />
-            <div className="lg:hidden fixed top-0 left-0 right-0 bg-background dark:bg-background-dark border-b border-border dark:border-border-dark shadow-lg z-50">
+            <div className="lg:hidden absolute top-0 left-0 right-0 bg-background dark:bg-background-dark border-b border-border dark:border-border-dark shadow-lg z-[110] max-h-[100dvh] overflow-y-auto">
               {/* Mobile Header */}
-              <div className="flex items-center justify-between h-16 px-4 border-b border-border dark:border-border-dark">
+              <div className="flex items-center justify-between h-16 px-4 border-b border-border dark:border-border-dark shrink-0">
                 <div 
                   className="text-xl font-bold text-primary cursor-pointer hover:opacity-80"
                   onClick={() => scrollToSection('home')}
                 >
-                  MEYER
+                  MEYAR
                 </div>
                 <button
                   className="p-2 rounded-lg bg-muted dark:bg-muted-dark hover:bg-muted-foreground/20 dark:hover:bg-white/10 transition-colors duration-75"
